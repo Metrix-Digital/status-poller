@@ -1,2 +1,4 @@
 requests>=2.31
-psycopg2-binary>=2.9   ; optional — only used when NEON_DATABASE_URL is set
+# psycopg2-binary is optional — only imported when NEON_DATABASE_URL is set.
+# Harmless to install always; the poll script imports it lazily.
+psycopg2-binary>=2.9
