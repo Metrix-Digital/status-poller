@@ -1,6 +1,6 @@
 {
   "Anthropic": {
-    "description": "Minor Service Outage",
+    "description": "Partially Degraded Service",
     "indicator": "minor",
     "last_change": "2026-06-03T05:49:24.172815+00:00"
   },
@@ -15,9 +15,9 @@
     "last_change": "2026-06-03T02:35:42.170546+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Outage",
-    "indicator": "major",
-    "last_change": "2026-06-03T05:49:23.656148+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-06-03T07:26:54.659018+00:00"
   },
   "Railway": {
     "description": "All Systems Operational",
