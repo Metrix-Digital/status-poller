@@ -1,8 +1,8 @@
 {
   "Anthropic": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-06-23T08:42:04.220563+00:00"
+    "description": "Partial System Outage",
+    "indicator": "major",
+    "last_change": "2026-06-23T15:18:27.267492+00:00"
   },
   "Cloudflare": {
     "description": "Minor Service Outage",
@@ -15,9 +15,9 @@
     "last_change": "2026-06-16T19:06:31.691060+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Degradation",
-    "indicator": "minor",
-    "last_change": "2026-06-17T19:04:32.126473+00:00"
+    "description": "Partial System Outage",
+    "indicator": "major",
+    "last_change": "2026-06-23T15:18:27.011643+00:00"
   },
   "Railway": {
     "description": "All Systems Operational",
