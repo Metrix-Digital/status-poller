@@ -15,9 +15,9 @@
     "last_change": "2026-07-09T14:19:25.054298+00:00"
   },
   "OpenAI": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-07-11T02:12:23.587977+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-07-12T10:06:15.209977+00:00"
   },
   "Railway": {
     "description": "All Systems Operational",
