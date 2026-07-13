@@ -1,8 +1,8 @@
 {
   "Anthropic": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-07-10T15:32:54.933333+00:00"
+    "description": "status endpoint timed out (15s)",
+    "indicator": "unknown",
+    "last_change": "2026-07-13T21:39:21.281250+00:00"
   },
   "Cloudflare": {
     "description": "Minor Service Outage",
