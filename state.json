@@ -10,14 +10,14 @@
     "last_change": "2026-07-03T06:38:51.190544+00:00"
   },
   "GitHub": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-07-16T22:26:50.977484+00:00"
+    "description": "Partially Degraded Service",
+    "indicator": "minor",
+    "last_change": "2026-07-16T23:10:18.663405+00:00"
   },
   "OpenAI": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-07-16T15:53:19.789121+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-07-16T23:10:17.836999+00:00"
   },
   "Railway": {
     "description": "All Systems Operational",
