@@ -10,9 +10,9 @@
     "last_change": "2026-07-03T06:38:51.190544+00:00"
   },
   "GitHub": {
-    "description": "Partially Degraded Service",
-    "indicator": "minor",
-    "last_change": "2026-07-20T16:29:32.775723+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-07-20T19:11:56.541173+00:00"
   },
   "OpenAI": {
     "description": "All Systems Operational",
