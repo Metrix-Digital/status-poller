@@ -10,14 +10,14 @@
     "last_change": "2026-07-03T06:38:51.190544+00:00"
   },
   "GitHub": {
-    "description": "Partially Degraded Service",
+    "description": "Minor Service Outage",
     "indicator": "minor",
     "last_change": "2026-07-19T23:36:52.825946+00:00"
   },
   "OpenAI": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-07-19T17:14:07.311959+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-07-20T00:53:14.607640+00:00"
   },
   "Railway": {
     "description": "All Systems Operational",
