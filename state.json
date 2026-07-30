@@ -1,8 +1,8 @@
 {
   "Anthropic": {
-    "description": "Minor Service Outage",
-    "indicator": "minor",
-    "last_change": "2026-07-30T06:13:09.356020+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-07-30T10:38:30.211716+00:00"
   },
   "Cloudflare": {
     "description": "Minor Service Outage",
@@ -10,9 +10,9 @@
     "last_change": "2026-07-03T06:38:51.190544+00:00"
   },
   "GitHub": {
-    "description": "Partially Degraded Service",
-    "indicator": "minor",
-    "last_change": "2026-07-30T09:52:25.878727+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-07-30T10:38:30.425883+00:00"
   },
   "OpenAI": {
     "description": "All Systems Operational",
