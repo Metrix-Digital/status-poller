@@ -1,8 +1,8 @@
 {
   "Anthropic": {
-    "description": "request failed: SSLError",
-    "indicator": "unknown",
-    "last_change": "2026-08-14T02:40:21.866683+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-08-14T11:12:40.711132+00:00"
   },
   "Cloudflare": {
     "description": "Minor Service Outage",
