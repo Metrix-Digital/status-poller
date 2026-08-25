@@ -20,8 +20,8 @@
     "last_change": "2026-08-21T20:50:45.399184+00:00"
   },
   "Railway": {
-    "description": "Partially Degraded Service",
-    "indicator": "minor",
-    "last_change": "2026-08-25T09:31:49.100235+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-08-25T14:47:22.825006+00:00"
   }
 }
