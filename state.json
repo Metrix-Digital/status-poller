@@ -5,9 +5,9 @@
     "last_change": "2026-08-30T05:38:17.773607+00:00"
   },
   "Cloudflare": {
-    "description": "request failed: ConnectionError",
-    "indicator": "unknown",
-    "last_change": "2026-08-30T15:37:47.507161+00:00"
+    "description": "Minor Service Outage",
+    "indicator": "minor",
+    "last_change": "2026-08-30T15:43:24.576672+00:00"
   },
   "GitHub": {
     "description": "All Systems Operational",
