@@ -1,8 +1,8 @@
 {
   "Anthropic": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-08-31T20:37:33.746380+00:00"
+    "description": "HTTP 405 from status endpoint",
+    "indicator": "unknown",
+    "last_change": "2026-09-01T14:08:48.590943+00:00"
   },
   "Cloudflare": {
     "description": "Minor Service Outage",
@@ -10,9 +10,9 @@
     "last_change": "2026-08-30T15:43:24.576672+00:00"
   },
   "GitHub": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-08-31T09:55:35.896156+00:00"
+    "description": "HTTP 405 from status endpoint",
+    "indicator": "unknown",
+    "last_change": "2026-09-01T14:08:49.123442+00:00"
   },
   "OpenAI": {
     "description": "Partial System Degradation",
@@ -20,8 +20,8 @@
     "last_change": "2026-08-31T22:33:58.573744+00:00"
   },
   "Railway": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-08-30T08:46:37.567093+00:00"
+    "description": "HTTP 405 from status endpoint",
+    "indicator": "unknown",
+    "last_change": "2026-09-01T14:08:48.071323+00:00"
   }
 }
