@@ -10,9 +10,9 @@
     "last_change": "2026-08-30T15:43:24.576672+00:00"
   },
   "GitHub": {
-    "description": "Partial System Outage",
-    "indicator": "major",
-    "last_change": "2026-09-13T09:44:21.826926+00:00"
+    "description": "Partially Degraded Service",
+    "indicator": "minor",
+    "last_change": "2026-09-13T10:32:26.094333+00:00"
   },
   "OpenAI": {
     "description": "All Systems Operational",
