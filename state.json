@@ -20,8 +20,8 @@
     "last_change": "2026-09-13T17:50:28.065486+00:00"
   },
   "Railway": {
-    "description": "Partial System Outage",
-    "indicator": "major",
-    "last_change": "2026-09-14T16:52:52.784429+00:00"
+    "description": "Partially Degraded Service",
+    "indicator": "minor",
+    "last_change": "2026-09-14T17:21:49.077921+00:00"
   }
 }
