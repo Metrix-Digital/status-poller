@@ -20,8 +20,8 @@
     "last_change": "2026-09-13T17:50:28.065486+00:00"
   },
   "Railway": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-09-09T19:25:52.060011+00:00"
+    "description": "Partial System Outage",
+    "indicator": "major",
+    "last_change": "2026-09-14T16:52:52.784429+00:00"
   }
 }
