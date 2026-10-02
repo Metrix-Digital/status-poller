@@ -5,9 +5,9 @@
     "last_change": "2026-10-01T18:39:45.601145+00:00"
   },
   "Cloudflare": {
-    "description": "Partial System Outage",
-    "indicator": "major",
-    "last_change": "2026-10-02T21:48:19.261091+00:00"
+    "description": "Minor Service Outage",
+    "indicator": "minor",
+    "last_change": "2026-10-02T22:18:36.193507+00:00"
   },
   "GitHub": {
     "description": "All Systems Operational",
