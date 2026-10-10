@@ -15,9 +15,9 @@
     "last_change": "2026-10-07T15:58:16.904053+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Outage",
-    "indicator": "major",
-    "last_change": "2026-10-09T21:16:52.223452+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-10-10T01:02:42.033826+00:00"
   },
   "Railway": {
     "description": "All Systems Operational",
