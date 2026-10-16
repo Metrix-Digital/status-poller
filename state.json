@@ -20,8 +20,8 @@
     "last_change": "2026-10-16T10:50:54.902679+00:00"
   },
   "Railway": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-10-13T10:38:05.377901+00:00"
+    "description": "status endpoint timed out (15s)",
+    "indicator": "unknown",
+    "last_change": "2026-10-16T13:18:51.953305+00:00"
   }
 }
