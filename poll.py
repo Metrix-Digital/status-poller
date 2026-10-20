@@ -37,16 +37,18 @@ import requests
 STATE_FILE = Path(__file__).parent / "state.json"
 
 # --- vendor list -------------------------------------------------------------
-# All standard Atlassian Statuspage (/api/v2/status.json) — same response shape:
+# kind "atlassian" (the default): Atlassian Statuspage /api/v2/status.json —
 #   {"status": {"indicator": "none|minor|major|critical", "description": "..."}}
+# kind "railway": Railway's own status site (/api/status), see parse_railway().
+#   Railway left Atlassian; railway.statuspage.io has been frozen at "All
+#   Systems Operational" since 2026-10-01 and missed the 2026-10-20 builds outage.
 # CONFIRMED = verified returning valid JSON. VERIFY = plausible but unconfirmed;
 # the poller reports 'unknown' (not a crash) if the endpoint misbehaves.
 VENDORS = [
-    # Railway's custom domain (status.railway.com) serves HTML, not the API.
-    # The real Atlassian Statuspage API is on the statuspage.io subdomain.
-    {"name": "Railway",    "api": "https://railway.statuspage.io/api/v2/status.json",    "page": "https://status.railway.com",       "verified": True},
+    {"name": "Railway",    "api": "https://status.railway.com/api/status",               "page": "https://status.railway.com",       "verified": True, "kind": "railway"},
     {"name": "OpenAI",     "api": "https://status.openai.com/api/v2/status.json",        "page": "https://status.openai.com",        "verified": True},
-    {"name": "Anthropic",  "api": "https://status.anthropic.com/api/v2/status.json",     "page": "https://status.anthropic.com",     "verified": True},
+    # status.anthropic.com 301-redirects to status.claude.com; poll the target directly.
+    {"name": "Anthropic",  "api": "https://status.claude.com/api/v2/status.json",        "page": "https://status.claude.com",        "verified": True},
     {"name": "Cloudflare", "api": "https://www.cloudflarestatus.com/api/v2/status.json", "page": "https://www.cloudflarestatus.com", "verified": True},
     {"name": "GitHub",     "api": "https://www.githubstatus.com/api/v2/status.json",     "page": "https://www.githubstatus.com",     "verified": True},
     # --- NOT YET SUPPORTED (need custom adapters, not Atlassian Statuspage) ---
@@ -59,16 +61,109 @@ SEVERITY = {"none": "🟢", "minor": "🟡", "major": "🟠", "critical": "🔴"
 RANK = {"none": 0, "unknown": 1, "minor": 2, "major": 3, "critical": 4}
 
 
+USER_AGENT = "aiterated-status-poller/1"
+
+# Railway component impact -> indicator. Unknown strings fall back to "minor".
+RAILWAY_IMPACT = {
+    "MAJOR_OUTAGE": "major",
+    "FULL_OUTAGE": "critical",
+    "OUTAGE": "critical",
+    "CRITICAL": "critical",
+    "PARTIAL_OUTAGE": "minor",
+    "DEGRADED": "minor",
+    "DEGRADED_PERFORMANCE": "minor",
+}
+DESCRIPTION_MAX = 300
+
+# Migration guard: each Atlassian vendor's page is re-checked for the
+# "statuspage" marker at most once per interval; bookkeeping lives in state.json.
+PAGE_GUARD_KEY = "_page_guard"
+PAGE_GUARD_INTERVAL_S = 24 * 3600
+
+
 def now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def parse_railway(data: dict) -> tuple[str, str]:
+    """Map Railway's /api/status JSON to (indicator, description).
+
+    The worst component impact across all active incidents wins. A malformed
+    body raises KeyError/TypeError/AttributeError, which fetch_status catches.
+    """
+    incidents = data["activeIncidents"]
+    if not incidents:
+        return "none", "All Systems Operational"
+    worst = "minor"  # an active incident with no mapped component is still an incident
+    parts = []
+    for inc in incidents:
+        parts.append(f"{inc.get('title', 'Untitled incident')} ({inc.get('status', 'UNKNOWN')})")
+        for comp in inc.get("components") or []:
+            impact = comp.get("impact")
+            indicator = RAILWAY_IMPACT.get(impact)
+            if indicator is None:
+                print(f"  WARN: Railway impact {impact!r} unmapped; treating as minor", file=sys.stderr)
+                indicator = "minor"
+            if RANK[indicator] > RANK[worst]:
+                worst = indicator
+    description = "; ".join(parts)
+    if len(description) > DESCRIPTION_MAX:
+        description = description[: DESCRIPTION_MAX - 3] + "..."
+    return worst, description
+
+
+def page_looks_atlassian(page: str) -> bool | None:
+    """Whether the page HTML mentions "statuspage"; None when the fetch fails."""
+    try:
+        r = requests.get(page, timeout=15, headers={"User-Agent": USER_AGENT})
+        if r.status_code != 200:
+            print(f"  WARN: page guard: HTTP {r.status_code} from {page}", file=sys.stderr)
+            return None
+        return "statuspage" in r.text.lower()
+    except requests.exceptions.RequestException as e:
+        print(f"  WARN: page guard: fetch of {page} failed: {type(e).__name__}", file=sys.stderr)
+        return None
+
+
+def check_page_migrations(state: dict, slack_url: str, now: datetime) -> None:
+    """At most once a day, confirm each Atlassian vendor's page is still a
+    Statuspage. Warn Slack once per vendor when it is not (the poller's source
+    may be frozen, as Railway's was); clear the flag when the page changes back."""
+    guard = state.setdefault(PAGE_GUARD_KEY, {"last_check": None, "warned": []})
+    try:
+        elapsed = (now - datetime.fromisoformat(guard["last_check"])).total_seconds()
+    except (KeyError, TypeError, ValueError):
+        elapsed = None  # never checked, or unreadable timestamp: check now
+    if elapsed is not None and elapsed < PAGE_GUARD_INTERVAL_S:
+        return
+    warned = set(guard.get("warned") or [])
+    for v in VENDORS:
+        if v.get("kind", "atlassian") != "atlassian":
+            continue
+        looks = page_looks_atlassian(v["page"])
+        if looks is None:
+            continue
+        if looks:
+            warned.discard(v["name"])
+        elif v["name"] not in warned:
+            post_slack(
+                slack_url,
+                f"{v['name']} status page no longer looks like Atlassian Statuspage: "
+                f"the poller's source may be stale, verify {v['page']}",
+            )
+            warned.add(v["name"])
+    guard["last_check"] = now.isoformat()
+    guard["warned"] = sorted(warned)
 
 
 def fetch_status(vendor: dict) -> tuple[str, str]:
     """Return (indicator, description). Never raises — failure => ('unknown', reason)."""
     try:
-        r = requests.get(vendor["api"], timeout=15, headers={"User-Agent": "aiterated-status-poller/1"})
+        r = requests.get(vendor["api"], timeout=15, headers={"User-Agent": USER_AGENT})
         if r.status_code != 200:
             return "unknown", f"HTTP {r.status_code} from status endpoint"
+        if vendor.get("kind", "atlassian") == "railway":
+            return parse_railway(r.json())
         status = r.json().get("status", {})
         indicator = status.get("indicator", "unknown")
         if indicator not in SEVERITY:
@@ -78,7 +173,7 @@ def fetch_status(vendor: dict) -> tuple[str, str]:
         return "unknown", "status endpoint timed out (15s)"
     except requests.exceptions.RequestException as e:
         return "unknown", f"request failed: {type(e).__name__}"
-    except (ValueError, KeyError) as e:
+    except (ValueError, KeyError, TypeError, AttributeError) as e:
         return "unknown", f"unparseable status response: {type(e).__name__}"
 
 
@@ -188,6 +283,7 @@ def main() -> int:
     else:
         print("\n  -> no changes; Slack quiet, no DB write")
 
+    check_page_migrations(state, slack_url, datetime.now(timezone.utc))
     save_state(state)
     return 0
 
