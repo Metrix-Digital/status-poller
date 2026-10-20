@@ -20,7 +20,7 @@
     "last_change": "2026-10-19T14:24:18.363084+00:00"
   },
   "Railway": {
-    "description": "New builds are temporarily paused (IDENTIFIED)",
+    "description": "New builds are temporarily paused (MONITORING)",
     "indicator": "major",
     "last_change": "2026-10-20T18:24:09.931189+00:00"
   },
