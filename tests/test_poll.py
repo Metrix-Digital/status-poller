@@ -92,6 +92,8 @@ def test_railway_unknown_impact_is_minor_and_logged(monkeypatch: pytest.MonkeyPa
         FakeResponse(payload={"unexpected": True}),
         FakeResponse(payload={"activeIncidents": "not-a-list-of-dicts"}),
         FakeResponse(payload=["not", "a", "dict"]),
+        FakeResponse(payload={"activeIncidents": None}),
+        FakeResponse(payload={"activeIncidents": {}}),
     ],
 )
 def test_railway_malformed_is_unknown(monkeypatch: pytest.MonkeyPatch, response: FakeResponse) -> None:
@@ -99,9 +101,14 @@ def test_railway_malformed_is_unknown(monkeypatch: pytest.MonkeyPatch, response:
     assert poll.fetch_status(RAILWAY)[0] == "unknown"
 
 
-def capture_slack(monkeypatch: pytest.MonkeyPatch) -> list[str]:
+def capture_slack(monkeypatch: pytest.MonkeyPatch, delivered: bool = True) -> list[str]:
     posts: list[str] = []
-    monkeypatch.setattr(poll, "post_slack", lambda _url, text: posts.append(text))
+
+    def fake_post(_url: str, text: str) -> bool:
+        posts.append(text)
+        return delivered
+
+    monkeypatch.setattr(poll, "post_slack", fake_post)
     return posts
 
 
@@ -145,6 +152,16 @@ def test_guard_rearms_after_page_changes_back(monkeypatch: pytest.MonkeyPatch) -
     assert state[poll.PAGE_GUARD_KEY]["warned"] == []
     stub_get(monkeypatch, FakeResponse(text="<html>no marker</html>"))
     poll.check_page_migrations(state, "hook", NOW + timedelta(days=2, minutes=2))
+    assert len(posts) == 2 * atlassian_count()
+
+
+def test_guard_failed_slack_post_is_retried(monkeypatch: pytest.MonkeyPatch) -> None:
+    stub_get(monkeypatch, FakeResponse(text="<html>no marker</html>"))
+    posts = capture_slack(monkeypatch, delivered=False)
+    state: dict = {}
+    poll.check_page_migrations(state, "hook", NOW)
+    assert state[poll.PAGE_GUARD_KEY]["warned"] == []
+    poll.check_page_migrations(state, "hook", NOW + timedelta(days=1, minutes=1))
     assert len(posts) == 2 * atlassian_count()
 
 

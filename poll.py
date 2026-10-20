@@ -92,6 +92,9 @@ def parse_railway(data: dict) -> tuple[str, str]:
     body raises KeyError/TypeError/AttributeError, which fetch_status catches.
     """
     incidents = data["activeIncidents"]
+    if not isinstance(incidents, list):
+        # a null/changed shape must read as unknown, never as healthy
+        raise TypeError(f"activeIncidents is {type(incidents).__name__}, expected list")
     if not incidents:
         return "none", "All Systems Operational"
     worst = "minor"  # an active incident with no mapped component is still an incident
@@ -145,13 +148,12 @@ def check_page_migrations(state: dict, slack_url: str, now: datetime) -> None:
             continue
         if looks:
             warned.discard(v["name"])
-        elif v["name"] not in warned:
-            post_slack(
-                slack_url,
-                f"{v['name']} status page no longer looks like Atlassian Statuspage: "
-                f"the poller's source may be stale, verify {v['page']}",
-            )
-            warned.add(v["name"])
+        elif v["name"] not in warned and post_slack(
+            slack_url,
+            f"{v['name']} status page no longer looks like Atlassian Statuspage: "
+            f"the poller's source may be stale, verify {v['page']}",
+        ):
+            warned.add(v["name"])  # only once delivered; a failed post retries at the next daily check
     guard["last_check"] = now.isoformat()
     guard["warned"] = sorted(warned)
 
@@ -190,13 +192,17 @@ def save_state(state: dict[str, dict]) -> None:
     STATE_FILE.write_text(json.dumps(state, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
 
-def post_slack(webhook: str, text: str) -> None:
+def post_slack(webhook: str, text: str) -> bool:
+    """Post to Slack. Returns True only when Slack accepted the message."""
     try:
         r = requests.post(webhook, json={"text": text}, timeout=15)
         if r.status_code >= 300:
             print(f"  WARN: Slack returned HTTP {r.status_code}: {r.text[:200]}", file=sys.stderr)
+            return False
+        return True
     except requests.exceptions.RequestException as e:
         print(f"  WARN: Slack post failed: {type(e).__name__}", file=sys.stderr)
+        return False
 
 
 def write_neon(changes: list[tuple], neon_url: str) -> None:
