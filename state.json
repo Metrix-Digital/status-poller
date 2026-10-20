@@ -20,8 +20,12 @@
     "last_change": "2026-10-19T14:24:18.363084+00:00"
   },
   "Railway": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-10-20T08:51:07.775181+00:00"
+    "description": "New builds are temporarily paused (IDENTIFIED)",
+    "indicator": "major",
+    "last_change": "2026-10-20T18:24:09.931189+00:00"
+  },
+  "_page_guard": {
+    "last_check": "2026-10-20T18:24:10.686901+00:00",
+    "warned": []
   }
 }
