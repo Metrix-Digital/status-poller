@@ -20,7 +20,7 @@
     "last_change": "2026-10-21T17:07:31.633803+00:00"
   },
   "Railway": {
-    "description": "Dashboard and API unavailable, builds paused (IDENTIFIED)",
+    "description": "Railway Platform Outage (IDENTIFIED)",
     "indicator": "major",
     "last_change": "2026-10-21T09:35:13.567851+00:00"
   },
