@@ -10,14 +10,14 @@
     "last_change": "2026-10-05T16:38:17.805228+00:00"
   },
   "GitHub": {
-    "description": "Partially Degraded Service",
-    "indicator": "minor",
-    "last_change": "2026-10-21T14:57:24.759812+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-10-21T17:07:32.025909+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Degradation",
-    "indicator": "minor",
-    "last_change": "2026-10-21T14:51:37.180103+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-10-21T17:07:31.633803+00:00"
   },
   "Railway": {
     "description": "Dashboard and API unavailable, builds paused (IDENTIFIED)",
