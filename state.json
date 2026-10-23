@@ -10,14 +10,14 @@
     "last_change": "2026-10-05T16:38:17.805228+00:00"
   },
   "GitHub": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-10-23T07:55:24.001210+00:00"
+    "description": "Partially Degraded Service",
+    "indicator": "minor",
+    "last_change": "2026-10-23T23:44:16.882632+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Degradation",
-    "indicator": "minor",
-    "last_change": "2026-10-23T22:56:24.491399+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-10-23T23:44:16.426196+00:00"
   },
   "Railway": {
     "description": "station.railway.com is unavailable (TRIAGE)",
