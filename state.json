@@ -1,8 +1,8 @@
 {
   "Anthropic": {
-    "description": "Partial System Outage",
-    "indicator": "major",
-    "last_change": "2026-10-23T23:38:42.605091+00:00"
+    "description": "Partially Degraded Service",
+    "indicator": "minor",
+    "last_change": "2026-10-23T23:55:51.946213+00:00"
   },
   "Cloudflare": {
     "description": "Partial System Outage",
