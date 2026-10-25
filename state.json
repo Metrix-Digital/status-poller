@@ -20,7 +20,7 @@
     "last_change": "2026-10-23T23:44:16.426196+00:00"
   },
   "Railway": {
-    "description": "Clarification: Recent Oct 24 API key revocations are precautionary (TRIAGE); station.railway.com is unavailable (TRIAGE)",
+    "description": "station.railway.com is unavailable (TRIAGE)",
     "indicator": "minor",
     "last_change": "2026-10-23T22:06:23.327196+00:00"
   },
