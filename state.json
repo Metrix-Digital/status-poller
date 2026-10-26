@@ -20,9 +20,9 @@
     "last_change": "2026-10-23T23:44:16.426196+00:00"
   },
   "Railway": {
-    "description": "TLS certificate issuance returning rate limit error (IDENTIFIED); station.railway.com is unavailable (TRIAGE)",
-    "indicator": "minor",
-    "last_change": "2026-10-23T22:06:23.327196+00:00"
+    "description": "TLS certificates not generating (IDENTIFIED); Railway Recovery after October 21 Incident (MONITORING); Degraded snapshot upload latency (IDENTIFIED); station.railway.com is unavailable (TRIAGE)",
+    "indicator": "major",
+    "last_change": "2026-10-26T19:18:29.545806+00:00"
   },
   "_page_guard": {
     "last_check": "2026-10-26T19:01:58.618245+00:00",
