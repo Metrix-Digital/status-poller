@@ -20,7 +20,7 @@
     "last_change": "2026-10-28T04:16:51.830981+00:00"
   },
   "Railway": {
-    "description": "Builds failing intermittently in US East and EU West (INVESTIGATING); Railway Recovery after October 21 Incident (MONITORING)",
+    "description": "Railway Recovery after October 21 Incident (MONITORING)",
     "indicator": "minor",
     "last_change": "2026-10-26T20:20:22.507049+00:00"
   },
