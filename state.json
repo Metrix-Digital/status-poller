@@ -10,14 +10,14 @@
     "last_change": "2026-10-05T16:38:17.805228+00:00"
   },
   "GitHub": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-10-24T00:53:18.729801+00:00"
+    "description": "Partially Degraded Service",
+    "indicator": "minor",
+    "last_change": "2026-10-30T14:38:14.527973+00:00"
   },
   "OpenAI": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-10-28T04:16:51.830981+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-10-30T14:38:13.999158+00:00"
   },
   "Railway": {
     "description": "Railway Recovery after October 21 Incident (MONITORING)",
