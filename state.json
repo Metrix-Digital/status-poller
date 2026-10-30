@@ -15,9 +15,9 @@
     "last_change": "2026-10-30T18:37:01.605872+00:00"
   },
   "OpenAI": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-10-30T18:42:31.853991+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-10-30T19:43:58.096039+00:00"
   },
   "Railway": {
     "description": "Railway Recovery after October 21 Incident (MONITORING)",
