@@ -20,9 +20,9 @@
     "last_change": "2026-11-03T05:42:23.156710+00:00"
   },
   "Railway": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-11-02T19:24:07.514253+00:00"
+    "description": "External network blocks affecting access to Railway (IDENTIFIED)",
+    "indicator": "minor",
+    "last_change": "2026-11-04T18:58:06.519071+00:00"
   },
   "_page_guard": {
     "last_check": "2026-11-03T19:24:32.607646+00:00",
