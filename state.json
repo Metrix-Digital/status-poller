@@ -15,9 +15,9 @@
     "last_change": "2026-11-04T18:14:58.386061+00:00"
   },
   "OpenAI": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-11-04T22:54:41.782211+00:00"
+    "description": "Partial System Degradation",
+    "indicator": "minor",
+    "last_change": "2026-11-05T15:29:19.313979+00:00"
   },
   "Railway": {
     "description": "External network blocks affecting access to Railway (IDENTIFIED)",
