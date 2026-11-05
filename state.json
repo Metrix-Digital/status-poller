@@ -10,14 +10,14 @@
     "last_change": "2026-10-05T16:38:17.805228+00:00"
   },
   "GitHub": {
-    "description": "Partially Degraded Service",
-    "indicator": "minor",
-    "last_change": "2026-11-05T16:54:29.011694+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-05T17:11:35.530214+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Degradation",
-    "indicator": "minor",
-    "last_change": "2026-11-05T15:29:19.313979+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-05T17:11:35.250782+00:00"
   },
   "Railway": {
     "description": "External network blocks affecting access to Railway (IDENTIFIED)",
