@@ -15,9 +15,9 @@
     "last_change": "2026-11-08T12:06:29.139950+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Degradation",
-    "indicator": "minor",
-    "last_change": "2026-11-08T15:15:55.127425+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-08T17:03:27.363545+00:00"
   },
   "Railway": {
     "description": "GitHub Outage Affecting Builds (TRIAGE); External network blocks affecting access to Railway (IDENTIFIED)",
