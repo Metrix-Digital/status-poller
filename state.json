@@ -20,7 +20,7 @@
     "last_change": "2026-11-05T17:11:35.250782+00:00"
   },
   "Railway": {
-    "description": "External network blocks affecting access to Railway (IDENTIFIED)",
+    "description": "GitHub Outage Affecting Builds (TRIAGE); External network blocks affecting access to Railway (IDENTIFIED)",
     "indicator": "minor",
     "last_change": "2026-11-04T18:58:06.519071+00:00"
   },
