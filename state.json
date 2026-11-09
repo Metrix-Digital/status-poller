@@ -10,14 +10,14 @@
     "last_change": "2026-10-05T16:38:17.805228+00:00"
   },
   "GitHub": {
-    "description": "Minor Service Outage",
-    "indicator": "minor",
-    "last_change": "2026-11-09T23:17:00.907275+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-09T23:51:11.654138+00:00"
   },
   "OpenAI": {
-    "description": "Partial System Degradation",
-    "indicator": "minor",
-    "last_change": "2026-11-09T23:11:21.463831+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-09T23:51:11.232013+00:00"
   },
   "Railway": {
     "description": "GitHub Outage Affecting Builds (TRIAGE)",
