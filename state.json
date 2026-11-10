@@ -20,9 +20,9 @@
     "last_change": "2026-11-09T23:51:11.232013+00:00"
   },
   "Railway": {
-    "description": "GitHub Outage Affecting Builds (TRIAGE)",
-    "indicator": "minor",
-    "last_change": "2026-11-04T18:58:06.519071+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-10T06:51:18.791284+00:00"
   },
   "_page_guard": {
     "last_check": "2026-11-09T19:34:08.748200+00:00",
