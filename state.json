@@ -20,7 +20,7 @@
     "last_change": "2026-11-12T18:31:22.836750+00:00"
   },
   "Railway": {
-    "description": "Builds failing in US West (INVESTIGATING)",
+    "description": "Builds failing in US West & US East (MONITORING)",
     "indicator": "minor",
     "last_change": "2026-11-13T23:28:26.203047+00:00"
   },
