@@ -10,7 +10,7 @@
     "last_change": "2026-11-11T10:12:57.123987+00:00"
   },
   "GitHub": {
-    "description": "Minor Service Outage",
+    "description": "Partially Degraded Service",
     "indicator": "minor",
     "last_change": "2026-11-13T15:47:30.693521+00:00"
   },
