@@ -1,6 +1,6 @@
 {
   "Anthropic": {
-    "description": "Minor Service Outage",
+    "description": "Partially Degraded Service",
     "indicator": "minor",
     "last_change": "2026-11-14T03:00:11.953062+00:00"
   },
