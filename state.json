@@ -20,9 +20,9 @@
     "last_change": "2026-11-12T18:31:22.836750+00:00"
   },
   "Railway": {
-    "description": "All Systems Operational",
-    "indicator": "none",
-    "last_change": "2026-11-14T00:09:49.491014+00:00"
+    "description": "Builds failing in US West & US East (MONITORING)",
+    "indicator": "minor",
+    "last_change": "2026-11-14T00:57:35.611356+00:00"
   },
   "_page_guard": {
     "last_check": "2026-11-13T19:49:17.905398+00:00",
