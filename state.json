@@ -21,8 +21,8 @@
   },
   "Railway": {
     "description": "Builds failing in Southeast Asia (Singapore) (IDENTIFIED)",
-    "indicator": "minor",
-    "last_change": "2026-11-20T23:12:59.846442+00:00"
+    "indicator": "major",
+    "last_change": "2026-11-20T23:24:18.644867+00:00"
   },
   "_page_guard": {
     "last_check": "2026-11-20T20:15:33.886858+00:00",
