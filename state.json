@@ -20,9 +20,9 @@
     "last_change": "2026-11-19T16:59:37.493512+00:00"
   },
   "Railway": {
-    "description": "Builds failing in Southeast Asia (Singapore) (IDENTIFIED)",
-    "indicator": "major",
-    "last_change": "2026-11-21T14:48:55.661189+00:00"
+    "description": "All Systems Operational",
+    "indicator": "none",
+    "last_change": "2026-11-21T14:54:21.673918+00:00"
   },
   "_page_guard": {
     "last_check": "2026-11-20T20:15:33.886858+00:00",
